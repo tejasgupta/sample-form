@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Example</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="" type="text/css" rel="stylesheet">
+</head>
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/angular-messages.min.js"></script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/example.js"></script>
+
+</head>
+<body ng-app="exampleApp">
+
+
+<div ng-controller="ExampleController" class="container-fluid">
+	  <div class="text-left">
+		<h1>Sample Form</h1>
+		<!-- <p class="lead">Example Form.</p> -->
+	</div>
+	<form name="exampleForm" class="form-horizontal " role="form">
+		<div class="row">
+
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="inputEmail" class="col-md-4 control-label">Title:</label>
+					<div class="col-md-8">
+						<select class="form-control">
+						  <option>Mr</option>
+						  <option>Mrs</option>
+						  <option>Dr</option>
+						  <option>Miss</option>
+						  <option>Master</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="firstName" class="col-md-4 control-label">First Name</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="firstName" name="firstName" ng-model="firstName" placeholder="eg. John" minlength="2" required>
+						<ul class="error-msgs" ng-messages="exampleForm.firstName.$dirty&&exampleForm.firstName.$error">
+							<li ng-message="required">This field is required</li>
+							<li ng-message="minlength">Minimum 2 characters are required.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="lastName" class="col-md-4 control-label">Last Name:</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="lastName" ng-model="lastName" name="lastName" placeholder="eg. Webber" minlength="2" required>
+						<ul class="error-msgs" ng-messages="exampleForm.lastName.$dirty&&exampleForm.lastName.$error">
+							<li ng-message="required">This field is required</li>
+							<li ng-message="minlength">Minimum 2 characters are required.</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>         
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="email" class="col-md-4 control-label">Email:</label>
+					<div class="col-md-8">
+						<input type="email" class="form-control" id="email" placeholder="example@com.au" ng-model="email" name="email" required>
+						<ul class="error-msgs" ng-messages="exampleForm.email.$dirty&&exampleForm.email.$error">
+							<li ng-message="required">This field is required</li>
+							<li ng-message="email">not a valid email</li>
+						</ul>
+					</div>
+				</div>
+			</div>         
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="street" class="col-md-4 control-label">Street Address:</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="street" placeholder="eg. 674 Botany Road">
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="city" class="col-md-4 control-label">City:</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="city" placeholder="eg. Alexandria">
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="state" class="col-md-4 control-label">State:</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" id="state" placeholder="eg. LA"  name="usState" ng-model="validState" valid-state>
+						<ul class="error-msgs" ng-messages="exampleForm.usState.$error">
+							<li ng-message="usStateValidator">Invalid State.</li>
+						</ul>
+					</div>                        
+				</div>
+			</div> 
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="zip" class="col-md-4 control-label">Zip:</label>
+					<div class="col-md-8">
+						<input type="text" ng-pattern="/(^\d{5}$)|(^\d{5}-\d{4}$)/" class="form-control" id="zip" placeholder="eg. 12345 or 12345-1234" name="zip" ng-model="zip" required>
+						<ul class="error-msgs" ng-messages="exampleForm.zip.$dirty&&exampleForm.zip.$error">
+							<li ng-message="pattern">Invalid zip!</li>
+							<li ng-message="required">This field is required</li>
+						</ul>
+					</div>
+				</div>
+			</div> 
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="optIn" class="col-md-4 control-label">Marketing Opt-in:</label>
+					<div class="row">
+						<div class="container">
+							<div class="col-sm-3 col-md-2">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="company" ng-model="company" value="Company" aria-label="...">Company
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-2">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" ng-disabled="!company" id="thirdParty1" value="thirdParty1" aria-label="...">Third Party1
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-2">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="thirdParty2"  ng-disabled="!company" value="thirdParty2" aria-label="...">Third Party2
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 
+						<input type="text" class="form-control" id="optIn" placeholder="Label 4">
+					</div> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="charityName" class="col-md-4 control-label">Charity to Donate to:</label>
+					<div class="col-md-8">
+						<select class="form-control" ng-model="charityName" name="charityName"
+						ng-model="id" 
+						ng-options="charity.id as charity.name for charity in charityOrgs" required>
+						  <option value="">-- select an option --</option>
+						</select>
+						<ul class="error-msgs" ng-messages="exampleForm.charityName.$dirty&&exampleForm.charityName.$error">
+							<li ng-message="required">This field is required</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<label for="inputEmail" class="col-md-4 control-label">Donation:</label>
+					<div class="col-md-8">
+						$&nbsp;<input id="donation" ng-model="donation" name="donation" type="number" min="10" max="1000" ng-init="donation=10.00"/>
+						<ul class="error-msgs" ng-messages="exampleForm.donation.$dirty&&exampleForm.donation.$error" >
+							<li ng-message="min">Please enter or select value between $10 and $1000</li>
+							<li ng-message="max">Please enter or select value between $10 and $1000</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group radioGroup ">
+					<label for="gender" class="col-md-4 control-label">Gender:</label>
+					<div class="row" id="gender">
+						<div class="container">
+							<div class="col-sm-3 col-md-1">
+								<div class="radio">
+									<label>
+										<input type="radio" name="gender" value="male" aria-label="...">Male
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-1">
+								<div class="radio">
+									<label>
+										<input type="radio" name="gender"value="female" aria-label="...">Female
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3">
+								<div class="radio">
+									<label>
+										<input type="radio" name="gender" value="other" aria-label="...">I'd rather not disclose
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				  
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<div class="row">
+						<div class="container">
+							<div class="col-sm-6 col-md-6">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="company" value="Company" aria-label="...">I agree and accept the <a href="#" >terms and condition</a>
+										
+										<!-- Trigger/Open The Modal -->
+									</label>
+								</div>
+							</div>
+				   		</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+
+
+	<div class="row">
+						<div class="container">
+							<div class="col-sm-12 col-md-12">
+		<span ng-bind="errorMessage" style="color: #ff0000;"></span><br/><br/>
+		<button class="btn btn-default" type="button" ng-click="submitForm()">Submit Form</button>
+		</div></div>
+		</div>
+		</div>
+
+	</form>
+</div><!-- /.container -->
+
+<script type='text/javascript' src="scripts/jquery.min.js"></script>
+
+
+<script type='text/javascript' src="scripts/bootstrap.min.js"></script>
+
+
+</body>
+</html>
