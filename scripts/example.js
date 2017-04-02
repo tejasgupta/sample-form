@@ -70,8 +70,9 @@ exampleApp.directive('validState', function () {
                 ];
 
                 var isValid = false;
+                var ngModelValue = ngModelValue.toUpperCase();
                 for (var i = 0; i < usStates.length; i++) {
-                    if (usStates[i].name == ngModelValue || usStates[i].abbreviation == ngModelValue) {
+                    if (usStates[i].name == ngModelValue || usStates[i].abbreviation == ngModelValue ) {
                         isValid = true;
                         break;
                     }
@@ -122,3 +123,18 @@ exampleApp.controller('ExampleController', ['$scope', function ($scope) {
         }
     }
 }]);
+
+
+function showTerms() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeTerms() {
+    document.getElementById("myNav").style.height = "0%";
+}
+
+
+$("#ex6").slider();
+$("#ex6").on("slide", function(slideEvt) {
+    $("#ex6SliderVal").text(slideEvt.value);
+});
