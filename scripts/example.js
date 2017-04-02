@@ -116,6 +116,10 @@ exampleApp.controller('ExampleController', ['$scope', function ($scope) {
             $scope.errorMessage += "Please enter valid zip code. ";
         }
 
+        if($scope.exampleForm.agree.$invalid) {
+            $scope.errorMessage += "Please agree to terms and condtions ";
+        }
+
 
         // if no errors
         if ($scope.errorMessage == '') {

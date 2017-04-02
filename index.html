@@ -257,9 +257,12 @@
 														proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
 													</div>
 												</div>
-												<input type="checkbox" id="company" value="Company" aria-label="..."/>I agree and accept the
+												<input type="checkbox" id="company" value="Company" aria-label="..." checked ng-model="agree" name="agree" ng-model="id"  required/>I agree and accept the
 												<span style="text-decoration: underline; cursor:pointer" onclick="showTerms()">terms and condition</span>
 												<!-- Trigger/Open The Modal -->
+												<ul class="error-msgs errorColor" ng-messages="exampleForm.charityName.$dirty&&exampleForm.charityName.$error">
+													<li ng-message="required">Please agree to Terms</li>
+												</ul>
 											</label>
 										</div>
 									</div>
@@ -271,7 +274,7 @@
 
 
 				<div class="row">
-					<div class="container">
+					<div>
 						<div class="col-sm-12 col-md-12">
 							<span ng-bind="errorMessage" class="errorColor"></span><br/><br/>
 							<button class="btn btn-default" type="button" ng-click="submitForm()">Submit Form</button>
