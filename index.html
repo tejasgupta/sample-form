@@ -1,299 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<title>Example</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="style/bootstrap.min.css" rel="stylesheet">
+	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta name="description" content="Eample">
+	<title>Example form</title>
+	<link rel="stylesheet" href="style/reset.css">
+	<link rel="stylesheet" href="style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap-slider.min.css">
+	<link rel="stylesheet" href="style/parsley.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+	<header>
+		<h1 class="text-center">Sample Form</h1>
+	</header>
+	<section class="container main-content">
+		<form name="exampleForm" id="exampleForm" class="exampleForm row" role="form" data-parsley-validate="">
+			<h4>Personal Details<hr></h4>
+			<div class="clearfix"></div>
+			<div class="form-group col-sm-6">
+				<div class="row">
+					<label for="inputEmail" class="col-sm-4 control-label">Title:</label>
+					<div class="col-sm-8">
+						<select class="form-control">
+							<option>Mr</option>
+							<option>Mrs</option>
+							<option>Dr</option>
+							<option>Miss</option>
+							<option>Master</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form-group col-sm-6">
+				<div class="row">
+					<label for="firstName" class="col-sm-4 control-label"><sup>*</sup>First Name:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="firstName" name="firstName" placeholder="eg. John" minlength="2" 
+						required  
+						data-parsley-minlength="2"
+						data-parsley-required-message="This field is required min 2 characters">
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-sm-6">
+				<div class="row">
+					<label for="lastName" class="col-sm-4 control-label"><sup>*</sup>Last Name:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="lastName" name="lastName" placeholder="eg. Webber" minlength="2" 
+						required
+						data-parsley-minlength="2"
+						data-parsley-required-message="This field is required min 2 characters">
+					</div>
+				</div>        
+			</div>
+			<div class="form-group col-sm-12">
+           		<div class="row">
+					<label for="email" class="col-sm-2 control-label"><sup>*</sup>Email:</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email" placeholder="example@com.au" name="email" required
+						data-parsley-minlength="2"
+						data-parsley-required-message="not a valid email">
+					</div>
+				</div>
+			</div>
+			<h4>Address Details<hr></h4>
+			<div class="form-group col-sm-6">
+          		<div class="row">
+					<label for="street" class="col-sm-4 control-label">Street:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="street" placeholder="eg. 674 Botany Road">
+					</div>
+				</div> 
+			</div>
+			<div class="form-group col-sm-6">
+          		<div class="row">
+					<label for="city" class="col-sm-4 control-label">City:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="city" placeholder="eg. Alexandria">
+					</div>
+				</div> 
+			</div>
 
+			<div class="form-group col-sm-6">
+          		<div class="row">
+					<label for="state" class="col-sm-4 control-label"><sup>*</sup>State:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="state" placeholder="eg. ALASKA"  name="state" 
+						required
+						data-parsley-state=""
+                 		data-parsley-required-message="Enter Valid state">
+					</div>                        
+				</div> 
+			</div>
+			<div class="form-group col-sm-6">
+          		<div class="row">
+					<label for="zip" class="col-sm-4 control-label"><sup>*</sup>Zip:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="zip" placeholder="eg. 12345" name="zip" 
+						required
+						data-parsley-pattern="/^\d{5}$/"
+                 		data-parsley-required-message="Invalid zip!">
+					</div>
+				</div> 
+			</div>
+			<h4 class="text-left">Charity Details<hr></h4>
+			<div class="clearfix"></div>	
+			<div class="form-group col-sm-12">
+           		<div class="row">							
+					<label for="optIn" class="col-sm-3 control-label">Marketing Opt-in:</label>
+					<div class="col-sm-9">
+						<input type="checkbox" name="opt" value="opt1">Company Only <br/>
+                 		<input type="checkbox" name="opt" value="opt2">Company + Third Parties
+                 	</div>
+				</div>
+			</div>
+			<div class="form-group col-sm-12">
+           		<div class="row">
+					<label for="charityName" class="col-sm-3 control-label"><sup>*</sup>Charity to Donate:</label>
+					<div class="col-sm-9">
+						<select class="form-control" name="charityName"
+						required
+						data-parsley-required-message="This field is required">
+								<option value="">-- select an option --</option>
+								<option value="1">Bill and Melinda Gates</option>
+								<option value="2">SOS Childerens village international</option>
+								<option value="3">Marie Cuire</option>
+								<option value="4">The Ramblers</option>
+								<option value="5">One Laptop per child</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-sm-12">
+				<div class="row">
+					<label for="inputEmail" class="col-sm-3 control-label">Donation: <span id="ex6CurrentSliderValLabel">&nbsp;$<span id="ex6SliderVal">10</span></span></label>
+					<div class="col-sm-9">
+						
+						<input id="ex6" type="text" 
+						data-slider-min="10" 
+						data-slider-max="1000" 
+						data-slider-step="1" 
+						data-slider-value="10"/>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form-group col-xs-12">
+               	<div class=" row">
+                  	<label class="col-sm-4">Gender <sup>*</sup>:</label>
+                  	<div class="col-sm-8">
+                     	<input type="radio" name="gender"  value="M" required   
+                        data-parsley-required-message="Please select gender" class=""  >Male<br/>
+                     	<input type="radio" name="gender"  value="F">Female<br/>
+                    	<input type="radio" name="gender"  value="NA" > I'd rather not disclose
+                	</div>
+               	</div>
+            </div>
+			<div class="clearfix"></div>
+			<div class=" form-group col-sm-12">
+           		<input type="checkbox" name="termsAndConditions" value="termsAndConditions"
+              		required data-parsley-required-message="Please agree to our Terms and Conditions">
+           		I agree and accept the 
+           		<a href="" data-toggle="modal" data-target="#terms">Terms and Conditions</a>
+        	</div>
+        	<div class="clearfix"></div>
+			<div class="row">
+				<div class="col-sm-12">
+					<button class="btn btn-default" type="submit" >Submit Form</button>
+				</div>
+			</div>
+		</form>
+	</section>
+	<footer><h6 class="text-center" >&copy; 2017 TEJAS GUPTA ALL RIGHTS RESERVED</h6></footer>
 
-	<script src="scripts/angular.min.js"></script>
-	<script src="scripts/angular-messages.min.js"></script>
+	<!-- TERMS AND CONDITIONS MODAL -->
+	<div id="terms" class="modal fade" role="dialog">
+	 <div class="modal-dialog">
+	    <div class="modal-content">
+	       <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h3 class="modal-title">Terms and Conditions:</h3>
+	       </div>
+	       <div class="modal-body">
+	          <p><sup>*</sup> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	          </ul>
+	       </div>
+	       <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+	       </div>
+	    </div>
+	 </div>
+	</div>
+	<!-- ON SUBMIT MODAL -->
+	<div id="onSubmit" class="modal fade" role="dialog">
+	 <div class="modal-dialog">
+	    <div class="modal-content">
+	       <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h3 class="modal-title">Thank you for the survey!!</h3>
+	       </div>
+	       <div class="modal-body">
+	          <p><sup>*</sup> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	          </ul>
+	       </div>
+	       <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+	       </div>
+	    </div>
+	 </div>
+	</div>
+
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
-
-
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.css" type="text/css" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.js"></script>
+	<script src="scripts/bootstrap-slider.min.js"></script>
+	<script src="scripts/parsley.min.js"></script>
 	<script src="scripts/example.js"></script>
-</head>
-<body ng-app="exampleApp">
-	<div class="container">
-		<div class="row justify-content-md-center">
-
-
-			<div ng-controller="ExampleController" class="container-fluid sampleForm">
-				<div class="text-left">
-					<h1 align="center">Sample Form</h1>
-					<!-- <p class="lead">Example Form.</p> -->
-				</div>
-				<form name="exampleForm" class="form-horizontal outerContainer" role="form">
-					<div class="row">
-
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="inputEmail" class="col-md-4 control-label">Title:</label>
-								<div class="col-md-8">
-									<select class="form-control">
-										<option>Mr</option>
-										<option>Mrs</option>
-										<option>Dr</option>
-										<option>Miss</option>
-										<option>Master</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="firstName" class="col-md-4 control-label">First Name:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="firstName" name="firstName" ng-model="firstName" placeholder="eg. John" minlength="2" required>
-									<ul class="error-msgs errorColor" ng-messages="exampleForm.firstName.$dirty&&exampleForm.firstName.$error">
-										<li ng-message="required">This field is required</li>
-										<li ng-message="minlength">Minimum 2 characters are required.</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="lastName" class="col-md-4 control-label">Last Name:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="lastName" ng-model="lastName" name="lastName" placeholder="eg. Webber" minlength="2" required>
-									<ul class="error-msgs errorColor" ng-messages="exampleForm.lastName.$dirty&&exampleForm.lastName.$error">
-										<li ng-message="required">This field is required</li>
-										<li ng-message="minlength">Minimum 2 characters are required.</li>
-									</ul>
-								</div>
-
-							</div>
-						</div>         
-					</div>
-
-					<div class="row">
-						<div class="col-sm-12 col-lg-12">
-							<div class="form-group">
-								<label for="email" class="col-md-2 control-label">Email:</label>
-								<div class="col-md-10">
-									<input type="email" class="form-control" id="email" placeholder="example@com.au" ng-model="email" name="email" required>
-									<ul class="error-msgs errorColor" ng-messages="exampleForm.email.$dirty&&exampleForm.email.$error">
-										<li ng-message="required">This field is required</li>
-										<li ng-message="email">not a valid email</li>
-									</ul>
-								</div>
-							</div>
-						</div>         
-					</div>
-					<div class="row">
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="street" class="col-md-4 control-label">Street Address:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="street" placeholder="eg. 674 Botany Road">
-								</div>
-							</div>
-						</div> 
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="city" class="col-md-4 control-label">City:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="city" placeholder="eg. Alexandria">
-								</div>
-							</div>
-						</div> 
-
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="state" class="col-md-4 control-label">State:</label>
-								<div class="col-md-8">
-									<input type="text" class="form-control" id="state" placeholder="eg. LA"  name="usState" ng-model="validState" uppercased valid-state>
-									<ul class="error-msgs errorColor" ng-messages="exampleForm.usState.$error">
-										<li ng-message="usStateValidator">Invalid State.</li>
-									</ul>
-								</div>                        
-							</div>
-						</div> 
-
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="zip" class="col-md-4 control-label">Zip:</label>
-								<div class="col-md-8">
-									<input type="text" ng-pattern="/(^\d{5}$)|(^\d{5}-\d{4}$)/" class="form-control" id="zip" placeholder="eg. 12345 or 12345-1234" name="zip" ng-model="zip" required>
-									<ul class="error-msgs errorColor" ng-messages="exampleForm.zip.$dirty&&exampleForm.zip.$error">
-										<li ng-message="pattern">Invalid zip!</li>
-										<li ng-message="required">This field is required</li>
-									</ul>
-								</div>
-							</div>
-						</div> 
-					</div>
-
-					<div class="row">
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="optIn" class="col-md-4 control-label">Marketing Opt-in:</label>
-								<div class="row">
-									<div class="container">
-										<div class="col-sm-12 col-md-2">
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" id="company" ng-model="company" value="Company" aria-label="...">Company
-												</label>
-											</div>
-										</div>
-										<div class="col-sm-12 col-md-2">
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" ng-disabled="!company" id="thirdParty1" value="thirdParty1" aria-label="...">Third Party1
-												</label>
-											</div>
-										</div>
-										<div class="col-sm-12 col-md-2">
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" id="thirdParty2"  ng-disabled="!company" value="thirdParty2" aria-label="...">Third Party2
-												</label>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-
-						<div class="col-sm-6 col-lg-6">
-							<div class="form-group">
-								<label for="charityName" class="col-md-4 control-label">Charity to Donate:</label>
-								<div class="col-md-8">
-									<select class="form-control" ng-model="charityName" name="charityName"
-									ng-model="id" 
-									ng-options="charity.id as charity.name for charity in charityOrgs" required>
-									<option value="">-- select an option --</option>
-								</select>
-								<ul class="error-msgs errorColor" ng-messages="exampleForm.charityName.$dirty&&exampleForm.charityName.$error">
-									<li ng-message="required">This field is required</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="row">
-
-					<div class="col-sm-6 col-lg-6">
-						<div class="form-group">
-							<label for="inputEmail" class="col-md-4 control-label">Donation:</label>
-							<div class="col-md-8">
-								<input id="ex6" type="text" data-slider-min="10" data-slider-max="1000" data-slider-step="1" data-slider-value="3"/>
-								<span id="ex6CurrentSliderValLabel"> &nbsp;&nbsp; $<span id="ex6SliderVal">&nbsp;&nbsp;10</span></span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-sm-6 col-lg-6">
-						<div class="form-group radioGroup ">
-							<label for="gender" class="col-md-4 control-label">Gender:</label>
-							<div class="row" id="gender">
-								<div class="container">
-									<div class="col-sm-12 col-md-2">
-										<div class="radio">
-											<label>
-												<input type="radio" name="gender" value="male" aria-label="...">Male
-											</label>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-2">
-										<div class="radio">
-											<label>
-												<input type="radio" name="gender"value="female" aria-label="...">Female
-											</label>
-										</div>
-									</div>
-									<div class="col-sm-12 col-md-4">
-										<div class="radio">
-											<label>
-												<input type="radio" name="gender" value="other" aria-label="...">I'd rather not disclose
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-
-							
-						</div>
-					</div>
-				</div>
-			
-				<div class="row">
-					<div class="col-sm-6 col-lg-6">
-						<div class="form-group">
-							<div class="row">
-								<div class="container">
-									<div class="col-sm-6 col-md-6">
-										<div class="checkbox">
-											<label>
-												<div id="myNav" class="overlay">
-													<a href="javascript:void(0)" class="closebtn" onclick="closeTerms()">&times;</a>
-													<!-- text overlay -->
-													<div class="overlay-content">
-														Important Terms and Condtions: <br/><br/>
-														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-														tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-														quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-														consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-														cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-														proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
-													</div>
-												</div>
-												<input type="checkbox" id="company" value="Company" aria-label="..." checked ng-model="agree" name="agree" ng-model="id"  required/>I agree and accept the
-												<span style="text-decoration: underline; cursor:pointer" onclick="showTerms()">terms and condition</span>
-												<!-- Trigger/Open The Modal -->
-												<ul class="error-msgs errorColor" ng-messages="exampleForm.charityName.$dirty&&exampleForm.charityName.$error">
-													<li ng-message="required">Please agree to Terms</li>
-												</ul>
-											</label>
-										</div>
-									</div>
-								</div>
-							</div> 
-						</div>
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div>
-						<div class="col-sm-12 col-md-12">
-							<span ng-bind="errorMessage" class="errorColor"></span><br/><br/>
-							<button class="btn btn-default" type="button" ng-click="submitForm()">Submit Form</button>
-						</div>
-					</div>
-				</div>
-
-			</form>
-		</div><!-- /.container -->
-	</div>
-</div>
-
-<script type="text/javascript">
-	// slider
-	var slider = new Slider("#ex6");
-	slider.on("slide", function(sliderValue) {
-		document.getElementById("ex6SliderVal").textContent = sliderValue;
-	});
-</script>
-
 </body>
 </html>
