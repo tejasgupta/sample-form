@@ -17,7 +17,7 @@ slider.on("slide", function(sliderValue) {
 });
 
 // On submit
- $('#exampleForm').parsley().on('form:submit', function() {
+$('#exampleForm').parsley().on('form:submit', function() {
     $('#onSubmit').modal('show');
     return false; 
-  });
+});
